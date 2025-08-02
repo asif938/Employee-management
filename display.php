@@ -24,6 +24,10 @@ $run = mysqli_query($con, $query);
             padding: 10px;
             text-align: center;
         }
+
+        .btn{
+            color: black;
+        }
         
     </style>
 </head>
@@ -39,6 +43,7 @@ $run = mysqli_query($con, $query);
                 <th>Gender</th>
                 <th>Designation</th>
                 <th>Salary</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -51,6 +56,10 @@ $run = mysqli_query($con, $query);
                         <td><?= $row['gender'] ?></td>
                         <td><?= $row['designation'] ?></td>
                         <td><?= $row['salary'] ?></td>
+                        <td>
+                            <a class="btn" href="update.php?id=<?= $row['id'] ?>">✏️Update</a>
+                            <a class="btn" href="delete.php?id=<?= $row['id'] ?>">🗑️Delete</a>
+                        </td>
                     </tr>
                 <?php endwhile; ?>
             <?php else: ?>
